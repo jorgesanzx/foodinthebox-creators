@@ -1,0 +1,38 @@
+<template name="recipePage">
+  <h1>{{name}}</h1>
+
+  {{#if description}}
+    <p>Descripción de la receta: {{description}}</p>
+  {{/if}}
+
+  {{#if preparationTime}}
+    <p>Tiempo de preparación: {{preparationTime}} minutos</p>
+  {{/if}}
+
+  {{#if cookingTime}}
+    <p>Tiempo de cocinado: {{cookingTime}} minutos</p>
+  {{/if}}
+
+  {{#if servings}}
+    <p>Número de raciones: {{servings}} raciones</p>
+  {{/if}}
+
+  {{#if difficultyText}}
+    <p>Dificultad: {{difficultyText}}</p>
+  {{/if}}
+
+  {{#if appliances}}
+    <p>Electrodomésticos necesarios: {{appliances}}</p>
+  {{/if}}
+
+  {{#if ingredients}}
+    <p>Ingredientes: {{ingredients}}</p>
+  {{/if}}
+
+  <a class="btn btn-default" href="{{pathFor 'recipeEdit'}}">Editar datos</a>
+  {{#if hasSteps}}
+    <a class="btn btn-primary" href="{{pathFor 'stepByStepNew'}}">Crear paso a paso</a>
+  {{else}}
+    <a class="btn btn-default" href="{{pathFor 'stepByStepPage'}}">Ver paso a paso</a>
+  {{/if}}
+</template>

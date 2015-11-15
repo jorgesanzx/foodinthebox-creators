@@ -1,0 +1,15 @@
+<template name="recipesList">
+  {{#each recipes}}
+    {{> recipeItem}}
+  {{/each}}
+  <a href="{{pathFor 'recipeNew'}}">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+      </div>
+      <div class="panel-footer">
+        <h3 class="thumbnail-text">Crear nueva receta</h3>
+      </div>
+    </div>
+  </a>
+</template>

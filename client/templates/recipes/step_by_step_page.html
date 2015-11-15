@@ -1,0 +1,17 @@
+<template name="stepByStepPage">
+  {{#each this.steps}}
+    <div class="form-group">
+      {{#with FS.GetFile "images" this.image}}
+        {{#unless this.isUploaded}}
+          {{> FS.UploadProgressBar bootstrap=true}}
+        {{/unless}}
+
+        <img src="{{this.url store='originals'}}" alt="">
+      {{/with}}
+      <p>{{this.text}}</p>
+    </div>
+  {{/each}}
+
+  <a class="btn btn-default" href="{{pathFor 'recipePage'}}">Ver datos</a>
+  <a class="btn btn-default" href="{{pathFor 'stepByStepEdit'}}">Editar paso a paso</a>
+</template>

@@ -1,0 +1,50 @@
+<template name="recipeEdit">
+  <form>
+    <div class="form-group">
+      <label for="name">¿Cuál es el nombre de la receta?</label>
+      <input name="name" id="name" type="text" value="{{name}}" class="form-control"/>
+    </div>
+    <div class="form-group">
+      <label for="description">Cuéntanos un poco sobre la receta. ¿Cuál es su historia? ¿Cómo la aprendiste? ¿Por qué te gusta?</label>
+      <textarea name="description" id="description" value="{{description}}" class="form-control" rows="5"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="preparation-time">¿Cuánto minutos se tarda en la preparación de la receta?</label>
+      <div class="input-group">
+        <input name="preparation-time" id="preparation-time" type="number" value="{{preparationTime}}" class="form-control"/>
+        <div class="input-group-addon">minutos</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="cooking-time">¿Cuánto minutos se tarda en el cocinado de la receta?</label>
+      <div class="input-group">
+        <input name="cooking-time" id="cooking-time" type="number" value="{{cookingTime}}" class="form-control"/>
+        <div class="input-group-addon">minutos</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="servings">¿Cuántas raciones salen de la receta?</label>
+      <div class="input-group">
+        <input name="servings" id="servings" type="number" value="{{servings}}" class="form-control"/>
+        <div class="input-group-addon">raciones</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="difficulty">¿Cuál es la dificultad de la receta?</label>
+      <select name="difficulty" id="difficulty" class="form-control">
+        <option value="1" {{isSelected 1}}>Fácil</option>
+        <option value="2" {{isSelected 2}}>Media</option>
+        <option value="3" {{isSelected 3}}>Difícil</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="appliances">¿Qué electrodomésticos se necesitan?</label>
+      <textarea name="appliances" id="appliances" value="{{appliances}}" class="form-control" rows="3"></textarea>
+    </div>
+    <div class="form-group">
+      <a class="typeform-share link btn btn-primary" href="https://formsv.typeform.com/to/QkOkDP?receta={{_id}}" data-mode="1" target="_blank">Elegir Ingredientes</a>
+    </div>
+    <button class="btn btn-default" id="back">Volver</button>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+  </form>
+</template>

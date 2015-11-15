@@ -1,0 +1,54 @@
+<template name="stepByStepNew">
+  {{#if this.steps}}
+    {{#each this.steps}}
+      {{#with FS.GetFile "images" this.image}}
+        {{#unless this.isUploaded}}
+          {{> FS.UploadProgressBar bootstrap=true}}
+        {{/unless}}
+
+        <img src="{{this.url}}">
+      {{/with}}
+    {{/each}}
+  {{else}}
+    <p>La primera foto será de los utensilios de cocina necesarios para elaborar la receta. Disponlos sobre una superficie para poder fotografiarlos, como en este ejemplo, y dale al botón de abajo.</p>
+    <img src="https://s3-eu-west-1.amazonaws.com/foodinthebox-creators.production/appliances_example.jpg">
+  {{/if}}
+
+  {{#if stepTwo}}
+    <p>Ahora, una foto donde se vean todos los ingredientes sería perfecta.</p>
+  {{/if}}
+
+  {{#if stepHigherThanTwo}}
+    <p>Sigue sacando fotos que detallen bien toda la elaboración de la receta.</p>
+  {{/if}}
+
+  <form>
+    <div class="form-group">
+      <input type="file" class="form-control" id="imageInput">
+    </div>
+  </form>
+
+  <button class="btn btn-default" id="back">Volver</button>
+
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+    Terminar fotos
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 id="myModalLabel">¿Recordaste la foto final del emplatado?</h4>
+          <p>Algunas veces con las prisas se nos olvida dar el toque final. Asegúrate de que has sacado fotos de la receta hasta que está lista para llevar a la mesa. ¿Has terminado con todas las fotos?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Volver para sacar más fotos</button>
+          <button type="button" class="btn btn-primary" id="next-step">Terminar fotos</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

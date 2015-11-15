@@ -1,0 +1,14 @@
+<template name="recipeItem">
+  <a href="{{pathFor 'recipePage'}}">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        {{#with FS.GetFile "images" thumbnail}}
+          <img class="thumbnail" src="{{this.url}}" alt="">
+        {{/with}}
+      </div>
+      <div class="panel-footer">
+        <h3 class="thumbnail-text">{{name}}</h3>
+      </div>
+    </div>
+  </a>
+</template>

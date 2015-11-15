@@ -1,0 +1,23 @@
+<template name="recipeNew">
+  <h1>Crear Receta</h1>
+  <p>Al crear una receta, solamente puedes utilizar ingredientes de los que disponemos. <a href="http://bit.ly/1NFv3Kl">Puedes consultar la lista completa aquí.</a></p>
+
+  <form class="main form page">
+    <div class="form-group">
+      <label class="control-label" for="name">¿Cuál es el nombre de la receta?</label>
+      <div class="controls">
+        <input name="name" id="name" type="text" class="form-control"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>¿Quieres completar los datos de la receta primero?</label>
+      <span id="helpBlock" class="help-block">Tiempo de preparación, número de raciones, dificultad...</span>
+      <button type="submit" class="btn btn-primary" id="complete-data">Completar datos</button>
+    </div>
+    <div class="form-group">
+      <label>¿O prefieres crear el paso a paso con fotos antes?</label>
+      <span id="helpBlock" class="help-block">Puedes hacerlo con fotos que ya tengas o ir sacándolas con el móvil mientras cocinas.</span>
+      <button type="submit" class="btn btn-primary" id="create-step-by-step">Crear paso a paso</button>
+    </div>
+  </form>
+</template>

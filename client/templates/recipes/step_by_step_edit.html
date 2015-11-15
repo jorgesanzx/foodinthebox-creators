@@ -1,0 +1,29 @@
+<template name="stepByStepEdit">
+  <form>
+    <p>Escribe debajo de cada foto la explicación correspondiente a ese paso.</p>
+    <p>Quizás haya algunos detalles sobre los utensilios que no hayan quedado del todo claros en la primera foto. Explica esos detalles. Por ejemplo, las sartenes deben ser antiadherentes y de por lo menos 25 cm.</p>
+
+    {{#each this.steps}}
+      <div class="form-group">
+        <label>
+          {{#with FS.GetFile "images" this.image}}
+            {{#unless this.isUploaded}}
+              {{> FS.UploadProgressBar bootstrap=true}}
+            {{/unless}}
+
+            <img src="{{this.url store='originals'}}" alt="">
+          {{/with}}
+
+          <textarea class="form-control" placeholder="Explica el paso de la foto aquí..." value="{{this.text}}" rows="5"></textarea>
+        </label>
+      </div>
+    {{/each}}
+
+    <div class="form-group">
+      <input type="file" class="form-control" id="imageInput">
+    </div>
+
+    <button class="btn btn-default" id="back">Volver</button>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+  </form>
+</template>
